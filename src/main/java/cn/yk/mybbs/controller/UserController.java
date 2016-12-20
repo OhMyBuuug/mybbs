@@ -4,18 +4,18 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import cn.yk.mybbs.common.RenderJson;
+import cn.yk.mybbs.controller.common.BaseController;
 import cn.yk.mybbs.model.user_test;
 import cn.yk.mybbs.service.IUserService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
 //@RequestMapping("/user")
-public class UserController extends BaseController{
+public class UserController extends BaseController {
    @Resource  
    private IUserService userService;
      

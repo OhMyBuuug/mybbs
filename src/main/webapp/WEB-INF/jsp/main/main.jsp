@@ -20,8 +20,9 @@
     <meta name="author" content="OhMyBuuug"/>
     <meta name="copyright" content="OhMyBuuug"/>
     <title>mybbs</title>
-    <link rel="shortcut icon" href="<%=path%>/resources/imagine/mybbs.jpg"/>
-    <link rel="stylesheet" type="text/css" href="<%=path%>/resources/html/main/main.css"/>
+    <link rel="shortcut icon" href="<%=path%>/resources/image/mybbs.jpg"/>
+    <link rel="stylesheet" type="text/css" href="<%=path%>/resources/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=path%>/resources/css/base.css"/>
 </head>
 
 <body>
@@ -33,14 +34,14 @@
                 <a>硬件技术论坛</a>&nbsp;&nbsp;&nbsp;<a>首页</a>
             </dt>
             <dt class="topBar-item">
-                <a class="a4page" data-url="<%=path%>/resources/html/subpage/regist/regist.html">立即注册</a>
+                <a class="a4page" data-url="<%=path%>/regist">立即注册</a>
                 &nbsp;<span>|</span>&nbsp;
-                <a class="a4page" data-url="<%=path%>/resources/html/subpage/login/login.html">登录</a>
+                <a class="a4page" data-url="<%=path%>/login">登录</a>
             </dt>
         </dl>
     </div>
     <!--BBS logo-->
-    <img src="<%=path%>/resources/imagine/BBS.jpg" class="logo"/>
+    <img src="<%=path%>/resources/image/BBS.jpg" class="logo"/>
     <div class="selectBar">
         <dl class="selectBar-list">
             <dt class="selectBar-item">
@@ -57,17 +58,25 @@
                         <option value="content">内容</option>
                         <option value="user">用户</option>
                     </select>-->
-                <input type="button" class="sortButton"></input>
+                <input type="button" class="sortButton" />
             </dt>
 
         </dl>
     </div>
     <!--<iframe src="../subpage/mybbs/mybbs.html" class="page"  frameborder="no" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
-    <iframe src="<%=path%>/resources/html/subpage/regist/regist.html" class="page" frameborder="no" scrolling="no"
+    <iframe src="<%=path%>/regist" class="page" frameborder="no" scrolling="no"
             marginheight="0" marginwidth="0"></iframe>
+    <div class="footPageContainer">
+        <div class="footZone-nav">
+            <a class="unselect" style="cursor: pointer;">&ensp;&ensp;· 关于我们</a>
+            <a class="unselect" style="cursor: pointer;">&ensp;&ensp;· 小黑屋</a>
+            <a class="unselect" style="cursor: pointer;">&ensp;&ensp;· mybbs</a>
+            <a class="unselect" style="cursor: pointer;">&ensp;&ensp;· 联系我 :)</a>
+        </div>
+    </div>
 </div>
-<script src="<%=path%>/resources/js/jquery-2.2.0.min.js" type="text/javascript" charset="UTF-8"></script>
-<script type="text/javascript" src="<%=path%>/resources/html/main/main.js" charset="UTF-8"></script>
+<script src="<%=path%>/resources/js/lib/jquery-2.2.0.min.js" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript" src="<%=path%>/resources/js/main.js" charset="UTF-8"></script>
 <%--<script type="text/javascript">
     $(function () {
         $(".a4page").click(function () {

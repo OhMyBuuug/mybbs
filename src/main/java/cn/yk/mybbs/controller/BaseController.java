@@ -1,4 +1,4 @@
-package cn.yk.mybbs.controller.common;
+package cn.yk.mybbs.controller;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 

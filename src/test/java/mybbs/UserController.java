@@ -1,4 +1,4 @@
-package cn.yk.mybbs.controller;
+package mybbs;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;

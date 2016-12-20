@@ -1,0 +1,121 @@
+html {
+    height: 100%;
+}
+body {
+    margin: 0;
+    height: 100%;
+}
+.main {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    flex-grow: 1;
+    min-width: 1200/16rem;
+    //顶部导航栏
+    .topBar {
+        width: 100%;
+        height: 32/16rem;
+        background-color: #F5F6F7;
+        min-width: 1200/16rem;
+        border-bottom: 1/16rem;
+        border-bottom-style: solid;
+        border-bottom-color: #E5E5E5;
+        color: #333333;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        .topBar-list {
+            margin: 0;
+            height: inherit;
+            padding: 0 15/16rem;
+            letter-spacing: 1/16rem;
+            font-size: 12/16rem;
+            .topBar-item {
+                height: inherit;
+                line-height: 32/16rem;
+                a {
+                    cursor: pointer;
+                    &:hover {
+                        color: #ff6700;
+                    }
+                }
+                &:nth-of-type(1) {
+                    float: left;
+                    margin-left: 3rem;
+                }
+                &:nth-of-type(2) {
+                    float: right;
+                    margin-right: 3.5rem;
+                }
+            }
+        }
+    }
+    // BBS logo图片
+    .logo {
+        position: inherit;
+        margin-top: 15/16rem;
+        margin-left: 52/16rem;
+    }
+    // 功能选择栏
+    .selectBar {
+        margin-top: -10/16rem;
+        height: 40/16rem;
+        background-color: #3B3B3B;
+        .selectBar-list {
+            margin-left: 67.5/16rem;
+            .selectBar-item {
+                line-height: 40/16rem;
+                a {
+                    height: inherit;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    -webkit-user-select: none;
+                    padding: 7.5/16rem 17.5/16rem;
+                    text-decoration: none;
+                    color: #FFFFFF;
+                    cursor: pointer;
+                    font-size: 18/16rem;
+                }
+                .sortKey{
+                    color: #767676;
+                    margin-top: 2.5/16rem;
+                    padding: 0;
+                    padding-left: 10/16rem;
+                    border: 0;
+                    width: 256/16rem;
+//                  line-height: 23/16rem;
+                    height: 30/16rem;
+                }
+                .sortStrategy{
+                    border: none;
+                    appearance: none;
+                    margin-left: -50/16rem;
+                }
+                .sortButton{
+                    cursor: pointer;
+                    border: none;
+                    width: 34/16rem;
+                    height: 30/16rem;
+                    background: url(../../imagine/sort.jpg);
+                }
+                .selected {
+                    background-color: #555555;
+                }
+                .mouseover {
+                    background-color: #333333;
+                }
+                &:nth-of-type(1) {
+                    float: left;
+                }
+                &:nth-of-type(2) {
+                    float: right;
+                    margin-right: 5rem;
+                }
+            }
+        }
+    }
+    .page{
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,140 @@
+html {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	height: 100%;
+}
+
+.main {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	flex-grow: 1;
+	min-width: 75rem;
+}
+
+.main .topBar {
+	width: 100%;
+	height: 2rem;
+	background-color: #F5F6F7;
+	min-width: 75rem;
+	border-bottom: 0.0625rem;
+	border-bottom-style: solid;
+	border-bottom-color: #E5E5E5;
+	color: #333333;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+
+.main .topBar .topBar-list {
+	margin: 0;
+	height: inherit;
+	padding: 0 0.9375rem;
+	letter-spacing: 0.0625rem;
+	font-size: 0.75rem;
+}
+
+.main .topBar .topBar-list .topBar-item {
+	height: inherit;
+	line-height: 2rem;
+}
+
+.main .topBar .topBar-list .topBar-item a {
+	cursor: pointer;
+}
+
+.main .topBar .topBar-list .topBar-item a:hover {
+	color: #ff6700;
+}
+
+.main .topBar .topBar-list .topBar-item:nth-of-type(1) {
+	float: left;
+	margin-left: 3rem;
+}
+
+.main .topBar .topBar-list .topBar-item:nth-of-type(2) {
+	float: right;
+	margin-right: 3.5rem;
+}
+
+.main .logo {
+	position: inherit;
+	margin-top: 0.9375rem;
+	margin-left: 3.25rem;
+}
+
+.main .selectBar {
+	margin-top: -0.625rem;
+	height: 2.5rem;
+	background-color: #3B3B3B;
+}
+
+.main .selectBar .selectBar-list {
+	margin-left: 4.21875rem;
+}
+
+.main .selectBar .selectBar-list .selectBar-item {
+	line-height: 2.5rem;
+}
+
+.main .selectBar .selectBar-list .selectBar-item a {
+	height: inherit;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	padding: 0.46875rem 1.09375rem;
+	text-decoration: none;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 1.125rem;
+}
+
+.main .selectBar .selectBar-list .selectBar-item .sortKey {
+	color: #767676;
+	margin-top: 0.15625rem;
+	padding: 0;
+	padding-left: 0.625rem;
+	border: 0;
+	width: 16rem;
+	height: 1.875rem;
+}
+
+.main .selectBar .selectBar-list .selectBar-item .sortStrategy {
+	border: none;
+	appearance: none;
+	margin-left: -3.125rem;
+}
+
+.main .selectBar .selectBar-list .selectBar-item .sortButton {
+	cursor: pointer;
+	border: none;
+	width: 2.125rem;
+	height: 1.875rem;
+	background: url(../../imagine/sort.jpg);
+}
+
+.main .selectBar .selectBar-list .selectBar-item .selected {
+	background-color: #555555;
+}
+
+.main .selectBar .selectBar-list .selectBar-item .mouseover {
+	background-color: #333333;
+}
+
+.main .selectBar .selectBar-list .selectBar-item:nth-of-type(1) {
+	float: left;
+}
+
+.main .selectBar .selectBar-list .selectBar-item:nth-of-type(2) {
+	float: right;
+	margin-right: 5rem;
+}
+
+.main .page {
+	width: 100%;
+	height: 100%;
+}
+/*# sourceMappingURL=main.css.map */

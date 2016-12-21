@@ -1,6 +1,8 @@
-package cn.yk.mybbs.dao;
+package cn.yk.mybbs.mysql.dao;
 
-import cn.yk.mybbs.model.section;
+import cn.yk.mybbs.mysql.model.section;
+
+import java.util.List;
 
 public interface sectionMapper {
     int deleteByPrimaryKey(Integer sectionid);
@@ -16,4 +18,7 @@ public interface sectionMapper {
     int updateByPrimaryKeyWithBLOBs(section record);
 
     int updateByPrimaryKey(section record);
+
+    // 获得所有的子分类
+    List<section> getAllSections();
 }

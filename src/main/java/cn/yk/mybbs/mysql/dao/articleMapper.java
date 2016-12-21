@@ -1,6 +1,6 @@
-package cn.yk.mybbs.dao;
+package cn.yk.mybbs.mysql.dao;
 
-import cn.yk.mybbs.model.article;
+import cn.yk.mybbs.mysql.model.article;
 
 public interface articleMapper {
     int deleteByPrimaryKey(Integer artcileid);

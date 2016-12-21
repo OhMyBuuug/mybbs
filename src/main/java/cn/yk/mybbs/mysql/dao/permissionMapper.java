@@ -1,6 +1,6 @@
-package cn.yk.mybbs.dao;
+package cn.yk.mybbs.mysql.dao;
 
-import cn.yk.mybbs.model.permission;
+import cn.yk.mybbs.mysql.model.permission;
 
 public interface permissionMapper {
     int deleteByPrimaryKey(Integer permissionid);

@@ -1,4 +1,4 @@
-package cn.yk.mybbs.model;
+package cn.yk.mybbs.mysql.model;
 
 public class user {
     private Integer userid;

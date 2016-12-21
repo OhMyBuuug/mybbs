@@ -1,6 +1,8 @@
-package cn.yk.mybbs.dao;
+package cn.yk.mybbs.mysql.dao;
 
-import cn.yk.mybbs.model.module;
+import cn.yk.mybbs.mysql.model.module;
+
+import java.util.List;
 
 public interface moduleMapper {
     int deleteByPrimaryKey(Integer moduleid);
@@ -14,4 +16,7 @@ public interface moduleMapper {
     int updateByPrimaryKeySelective(module record);
 
     int updateByPrimaryKey(module record);
+
+    // 获得所有的模块
+    List<module> getAllModules();
 }

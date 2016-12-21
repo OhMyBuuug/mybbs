@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.yk.mybbs.dao.permissionMapper" >
-  <resultMap id="BaseResultMap" type="cn.yk.mybbs.model.permission" >
+<mapper namespace="cn.yk.mybbs.mysql.dao.permissionMapper" >
+  <resultMap id="BaseResultMap" type="cn.yk.mybbs.mysql.model.permission" >
     <id column="permissionID" property="permissionid" jdbcType="INTEGER" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
@@ -18,11 +18,11 @@
     delete from permission
     where permissionID = #{permissionid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.yk.mybbs.model.permission" >
+  <insert id="insert" parameterType="cn.yk.mybbs.mysql.model.permission" >
     insert into permission (permissionID, remark)
     values (#{permissionid,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.yk.mybbs.model.permission" >
+  <insert id="insertSelective" parameterType="cn.yk.mybbs.mysql.model.permission" >
     insert into permission
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="permissionid != null" >
@@ -41,7 +41,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.yk.mybbs.model.permission" >
+  <update id="updateByPrimaryKeySelective" parameterType="cn.yk.mybbs.mysql.model.permission" >
     update permission
     <set >
       <if test="remark != null" >
@@ -50,7 +50,7 @@
     </set>
     where permissionID = #{permissionid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.yk.mybbs.model.permission" >
+  <update id="updateByPrimaryKey" parameterType="cn.yk.mybbs.mysql.model.permission" >
     update permission
     set remark = #{remark,jdbcType=VARCHAR}
     where permissionID = #{permissionid,jdbcType=INTEGER}

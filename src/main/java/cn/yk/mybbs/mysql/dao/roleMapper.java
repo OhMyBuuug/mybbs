@@ -1,6 +1,6 @@
-package cn.yk.mybbs.dao;
+package cn.yk.mybbs.mysql.dao;
 
-import cn.yk.mybbs.model.role;
+import cn.yk.mybbs.mysql.model.role;
 
 public interface roleMapper {
     int deleteByPrimaryKey(Integer roleid);

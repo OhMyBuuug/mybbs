@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../apache-maven-3.3.9/data/MyBBS/junit/junit/4.11/junit-4.11.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.3.9/data/MyBBS/junit/junit/4.11/junit-4.11-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/../../apache-maven-3.3.9/data/MyBBS/junit/junit/4.11/junit-4.11-sources.jar!/" />
     </SOURCES>

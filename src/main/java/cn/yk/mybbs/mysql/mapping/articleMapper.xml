@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.yk.mybbs.dao.articleMapper" >
-  <resultMap id="BaseResultMap" type="cn.yk.mybbs.model.article" >
+<mapper namespace="cn.yk.mybbs.mysql.dao.articleMapper" >
+  <resultMap id="BaseResultMap" type="cn.yk.mybbs.mysql.model.article" >
     <id column="artcileID" property="artcileid" jdbcType="INTEGER" />
     <result column="sectionID" property="sectionid" jdbcType="INTEGER" />
     <result column="articleTitle" property="articletitle" jdbcType="VARCHAR" />
@@ -26,7 +26,7 @@
     delete from article
     where artcileID = #{artcileid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.yk.mybbs.model.article" >
+  <insert id="insert" parameterType="cn.yk.mybbs.mysql.model.article" >
     insert into article (artcileID, sectionID, articleTitle, 
       articleAuthorID, articleContent, articleTag, 
       articlePV, isTop, createTime
@@ -36,7 +36,7 @@
       #{articlepv,jdbcType=INTEGER}, #{istop,jdbcType=BIT}, #{createtime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="cn.yk.mybbs.model.article" >
+  <insert id="insertSelective" parameterType="cn.yk.mybbs.mysql.model.article" >
     insert into article
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="artcileid != null" >
@@ -97,7 +97,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.yk.mybbs.model.article" >
+  <update id="updateByPrimaryKeySelective" parameterType="cn.yk.mybbs.mysql.model.article" >
     update article
     <set >
       <if test="sectionid != null" >
@@ -127,7 +127,7 @@
     </set>
     where artcileID = #{artcileid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.yk.mybbs.model.article" >
+  <update id="updateByPrimaryKey" parameterType="cn.yk.mybbs.mysql.model.article" >
     update article
     set sectionID = #{sectionid,jdbcType=INTEGER},
       articleTitle = #{articletitle,jdbcType=VARCHAR},

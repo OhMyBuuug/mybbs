@@ -1,6 +1,6 @@
-package cn.yk.mybbs.dao;
+package cn.yk.mybbs.mysql.dao;
 
-import cn.yk.mybbs.model.user;
+import cn.yk.mybbs.mysql.model.user;
 
 public interface userMapper {
     int deleteByPrimaryKey(Integer userid);

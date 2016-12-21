@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.yk.mybbs.dao.replyMapper" >
-  <resultMap id="BaseResultMap" type="cn.yk.mybbs.model.reply" >
+<mapper namespace="cn.yk.mybbs.mysql.dao.replyMapper" >
+  <resultMap id="BaseResultMap" type="cn.yk.mybbs.mysql.model.reply" >
     <id column="replyID" property="replyid" jdbcType="INTEGER" />
     <result column="articleID" property="articleid" jdbcType="INTEGER" />
     <result column="replyFloor" property="replyfloor" jdbcType="INTEGER" />
@@ -23,7 +23,7 @@
     delete from reply
     where replyID = #{replyid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.yk.mybbs.model.reply" >
+  <insert id="insert" parameterType="cn.yk.mybbs.mysql.model.reply" >
     insert into reply (replyID, articleID, replyFloor, 
       replyerID, replyContent, referenceFloor, 
       replyTime)
@@ -31,7 +31,7 @@
       #{replyerid,jdbcType=INTEGER}, #{replycontent,jdbcType=VARCHAR}, #{referencefloor,jdbcType=INTEGER}, 
       #{replytime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="cn.yk.mybbs.model.reply" >
+  <insert id="insertSelective" parameterType="cn.yk.mybbs.mysql.model.reply" >
     insert into reply
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="replyid != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.yk.mybbs.model.reply" >
+  <update id="updateByPrimaryKeySelective" parameterType="cn.yk.mybbs.mysql.model.reply" >
     update reply
     <set >
       <if test="articleid != null" >
@@ -104,7 +104,7 @@
     </set>
     where replyID = #{replyid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.yk.mybbs.model.reply" >
+  <update id="updateByPrimaryKey" parameterType="cn.yk.mybbs.mysql.model.reply" >
     update reply
     set articleID = #{articleid,jdbcType=INTEGER},
       replyFloor = #{replyfloor,jdbcType=INTEGER},

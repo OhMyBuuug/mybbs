@@ -1,10 +1,14 @@
 package cn.yk.mybbs.controller.subpage;
 
+import cn.yk.mybbs.common.RenderJson;
 import cn.yk.mybbs.controller.BaseController;
 import cn.yk.mybbs.service.IMyBBSOnloadService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.annotation.Resource;
+import java.util.HashMap;
 
 /**
  * <br> Project: mybbs
@@ -15,7 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author SiGen
  */
 @Controller
-public class MyBBS extends BaseController{
+public class MyBBSController extends BaseController{
+    @Resource
     private IMyBBSOnloadService iMyBBSOnloadService;
     /**
      * <br> Description: 接收到/mybbs请求后,返回mybbs页面
@@ -34,7 +39,11 @@ public class MyBBS extends BaseController{
      */
     @RequestMapping(value = "/mybbs/getModulesAndSections",method = RequestMethod.POST)
     public void getModulesAndSections(){
-        iMyBBSOnloadService.getMoudlesAndSections();
+        HashMap<String,Object> resultmap = new HashMap<>();
+        resultmap.put("modules",iMyBBSOnloadService.getMoudles());
+        resultmap.put("sections",iMyBBSOnloadService.getSections());
+
+        RenderJson.renderJSON(response,resultmap);
     }
 }
 

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.yk.mybbs.dao.sectionMapper" >
-  <resultMap id="BaseResultMap" type="cn.yk.mybbs.model.section" >
+<mapper namespace="cn.yk.mybbs.mysql.dao.sectionMapper" >
+  <resultMap id="BaseResultMap" type="cn.yk.mybbs.mysql.model.section" >
     <id column="sectionID" property="sectionid" jdbcType="INTEGER" />
     <result column="sectionName" property="sectionname" jdbcType="VARCHAR" />
     <result column="articleCount" property="articlecount" jdbcType="INTEGER" />
     <result column="moduleID" property="moduleid" jdbcType="INTEGER" />
     <result column="lastestCreateTime" property="lastestcreatetime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="cn.yk.mybbs.model.section" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="cn.yk.mybbs.mysql.model.section" extends="BaseResultMap" >
     <result column="sectionIcon" property="sectionicon" jdbcType="LONGVARBINARY" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -17,6 +17,12 @@
   <sql id="Blob_Column_List" >
     sectionIcon
   </sql>
+
+  <!-- 查询所有的子模块 -->
+  <select id="getAllSections" resultMap="BaseResultMap" parameterType="List">
+    SELECT * FROM section
+  </select>
+
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -29,7 +35,7 @@
     delete from section
     where sectionID = #{sectionid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.yk.mybbs.model.section" >
+  <insert id="insert" parameterType="cn.yk.mybbs.mysql.model.section" >
     insert into section (sectionID, sectionName, articleCount, 
       moduleID, lastestCreateTime, sectionIcon
       )
@@ -37,7 +43,7 @@
       #{moduleid,jdbcType=INTEGER}, #{lastestcreatetime,jdbcType=TIMESTAMP}, #{sectionicon,jdbcType=LONGVARBINARY}
       )
   </insert>
-  <insert id="insertSelective" parameterType="cn.yk.mybbs.model.section" >
+  <insert id="insertSelective" parameterType="cn.yk.mybbs.mysql.model.section" >
     insert into section
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="sectionid != null" >
@@ -80,7 +86,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.yk.mybbs.model.section" >
+  <update id="updateByPrimaryKeySelective" parameterType="cn.yk.mybbs.mysql.model.section" >
     update section
     <set >
       <if test="sectionname != null" >
@@ -101,7 +107,7 @@
     </set>
     where sectionID = #{sectionid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.yk.mybbs.model.section" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.yk.mybbs.mysql.model.section" >
     update section
     set sectionName = #{sectionname,jdbcType=VARCHAR},
       articleCount = #{articlecount,jdbcType=INTEGER},
@@ -110,7 +116,7 @@
       sectionIcon = #{sectionicon,jdbcType=LONGVARBINARY}
     where sectionID = #{sectionid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.yk.mybbs.model.section" >
+  <update id="updateByPrimaryKey" parameterType="cn.yk.mybbs.mysql.model.section" >
     update section
     set sectionName = #{sectionname,jdbcType=VARCHAR},
       articleCount = #{articlecount,jdbcType=INTEGER},

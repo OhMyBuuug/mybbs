@@ -189,7 +189,7 @@
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
-                    <include>cn/yk/mybbs/mapping/*.xml</include>
+                    <include>cn/yk/mybbs/mysql/mapping/*.xml</include>
                 </includes>
             </resource>
         </resources>

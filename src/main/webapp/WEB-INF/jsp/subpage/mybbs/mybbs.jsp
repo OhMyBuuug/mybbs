@@ -16,9 +16,20 @@
 </head>
 <body>
 这是论坛 :)
+<script type="text/javascript" src="<%=path%>/resources/js/lib/jquery-2.2.0.min.js" charset="UTF-8"></script>
 <script>
     window.onload=function () {
-        alert("<%=basePath%>");
+        $.ajax({
+            url: "<%=path%>/mybbs/getModulesAndSections",
+            type: "post",
+            success:function (resultmap) {
+                alert("1");
+                alert(resultmap.data);
+            },
+            error:function () {
+                alert("error");
+            }
+        });
     }
 </script>
 </body>

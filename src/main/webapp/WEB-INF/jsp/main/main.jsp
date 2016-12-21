@@ -77,7 +77,7 @@
 </div>
 <script src="<%=path%>/resources/js/lib/jquery-2.2.0.min.js" type="text/javascript" charset="UTF-8"></script>
 <script type="text/javascript" src="<%=path%>/resources/js/main.js" charset="UTF-8"></script>
-<script type="text/javascript">
+<%--<script type="text/javascript">
     $(function () {
         $(".a4page").click(function () {
             url = "<%=path%>/login/getTest";
@@ -86,9 +86,9 @@
                 type: 'post',
                 success: function (data) {
                     // var message = eval("("+data+")");
-//                    var user = $.parseJSON(data);
-//                    alert(user.age);
-//                    alert(user.userName);
+                    // var user = $.parseJSON(data);
+                    // alert(user.age);
+                    // alert(user.userName);
                     alert(JSON.stringify(data));
                     alert(data.age);
                     alert(data.userName);
@@ -96,7 +96,7 @@
             })
         });
     });
-</script>
+</script>--%>
 </body>
 
 </html>

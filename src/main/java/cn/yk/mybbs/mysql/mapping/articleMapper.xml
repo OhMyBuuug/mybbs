@@ -10,10 +10,11 @@
     <result column="articleTag" property="articletag" jdbcType="VARCHAR" />
     <result column="articlePV" property="articlepv" jdbcType="INTEGER" />
     <result column="isTop" property="istop" jdbcType="BIT" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
     artcileID, sectionID, articleTitle, articleAuthorID, articleContent, articleTag, 
-    articlePV, isTop
+    articlePV, isTop, createTime
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -28,10 +29,12 @@
   <insert id="insert" parameterType="cn.yk.mybbs.model.article" >
     insert into article (artcileID, sectionID, articleTitle, 
       articleAuthorID, articleContent, articleTag, 
-      articlePV, isTop)
+      articlePV, isTop, createTime
+      )
     values (#{artcileid,jdbcType=INTEGER}, #{sectionid,jdbcType=INTEGER}, #{articletitle,jdbcType=VARCHAR}, 
       #{articleauthorid,jdbcType=INTEGER}, #{articlecontent,jdbcType=VARCHAR}, #{articletag,jdbcType=VARCHAR}, 
-      #{articlepv,jdbcType=INTEGER}, #{istop,jdbcType=BIT})
+      #{articlepv,jdbcType=INTEGER}, #{istop,jdbcType=BIT}, #{createtime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.yk.mybbs.model.article" >
     insert into article
@@ -60,6 +63,9 @@
       <if test="istop != null" >
         isTop,
       </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="artcileid != null" >
@@ -85,6 +91,9 @@
       </if>
       <if test="istop != null" >
         #{istop,jdbcType=BIT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -112,6 +121,9 @@
       <if test="istop != null" >
         isTop = #{istop,jdbcType=BIT},
       </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where artcileID = #{artcileid,jdbcType=INTEGER}
   </update>
@@ -123,7 +135,8 @@
       articleContent = #{articlecontent,jdbcType=VARCHAR},
       articleTag = #{articletag,jdbcType=VARCHAR},
       articlePV = #{articlepv,jdbcType=INTEGER},
-      isTop = #{istop,jdbcType=BIT}
+      isTop = #{istop,jdbcType=BIT},
+      createTime = #{createtime,jdbcType=TIMESTAMP}
     where artcileID = #{artcileid,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -1,5 +1,7 @@
 package cn.yk.mybbs.model;
 
+import java.util.Date;
+
 public class reply {
     private Integer replyid;
 
@@ -12,6 +14,8 @@ public class reply {
     private String replycontent;
 
     private Integer referencefloor;
+
+    private Date replytime;
 
     public Integer getReplyid() {
         return replyid;
@@ -59,5 +63,13 @@ public class reply {
 
     public void setReferencefloor(Integer referencefloor) {
         this.referencefloor = referencefloor;
+    }
+
+    public Date getReplytime() {
+        return replytime;
+    }
+
+    public void setReplytime(Date replytime) {
+        this.replytime = replytime;
     }
 }

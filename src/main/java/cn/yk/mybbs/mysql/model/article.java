@@ -1,5 +1,7 @@
 package cn.yk.mybbs.model;
 
+import java.util.Date;
+
 public class article {
     private Integer artcileid;
 
@@ -16,6 +18,8 @@ public class article {
     private Integer articlepv;
 
     private Boolean istop;
+
+    private Date createtime;
 
     public Integer getArtcileid() {
         return artcileid;
@@ -79,5 +83,13 @@ public class article {
 
     public void setIstop(Boolean istop) {
         this.istop = istop;
+    }
+
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 }

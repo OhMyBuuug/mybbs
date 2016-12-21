@@ -24,7 +24,21 @@
             type: "post",
             success:function (resultmap) {
                 alert("1");
-                alert(resultmap.data);
+                alert("resultmap.toString:  "+ resultmap.toString());
+                var sections = resultmap.sections;
+                var lengthOfSections = sections.length;
+                console.log("sections");
+                for(var i = 0;i<lengthOfSections;i++){
+                    console.log(sections[i]);
+                    alert(sections[i]);
+                }
+                var modules = resultmap.modules;
+                var lengthOfModules = modules.length;
+                console.log("modules");
+                for(var i = 0;i<lengthOfModules;i++){
+                    console.log(modules[i]);
+                    alert(modules[i]);
+                }
             },
             error:function () {
                 alert("error");

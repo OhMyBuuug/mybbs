@@ -30,14 +30,14 @@
                 console.log("sections");
                 for(var i = 0;i<lengthOfSections;i++){
                     console.log(sections[i]);
-                    alert(sections[i]);
+                    alert(JSON.stringify(sections[i]));
                 }
                 var modules = resultmap.modules;
                 var lengthOfModules = modules.length;
                 console.log("modules");
                 for(var i = 0;i<lengthOfModules;i++){
                     console.log(modules[i]);
-                    alert(modules[i]);
+                    alert(JSON.stringify(modules[i]));
                 }
             },
             error:function () {

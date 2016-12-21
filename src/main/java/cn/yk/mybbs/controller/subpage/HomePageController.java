@@ -6,21 +6,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * @Project: mybbs
- * @Package: cn.yk.mybbs.controller.subpage
- * @Author: SiGen
- * @Description: 子页面/首页
- * @Date: Created in 8:52 2016/12/21.
- * @Modified: By
+ * <br> Project: mybbs
+ * <br> Package: cn.yk.mybbs.controller.subpage
+ * <br> Description: 子页面/首页
+ * <br> Date: Created in 8:52 2016/12/21.
+ * <br> Modified By
+ * @author SiGen
  */
 @Controller
 public class HomePageController extends BaseController {
     /**
-     * @author: SiGen
-     * @description: 接收到/homepage的请求后，返回homepage页面
-     * @return:
-     * @date: Created in 9:05 2016/12/21.
-     * @modified: By
+     * <br> Description: 接收到/homepage的请求后，返回homepage页面
+     * <br> Date: Created in 9:05 2016/12/21.
+     * <br> Modified By
+     * @return "subpage/homepage/homepage"
      */
     @RequestMapping(value = "/homepage", method = RequestMethod.GET)
     public String homePage() {

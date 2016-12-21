@@ -6,21 +6,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * @Project: mybbs
- * @Package: cn.yk.mybbs.controller.common
- * @Author: SiGen
- * @Description: 子页面/登录
- * @Date: Created in 21:26 2016/12/20.
- * @Modified: By
+ * <br> Project: mybbs
+ * <br> Package: cn.yk.mybbs.controller.common
+ * <br> Description: 子页面/登录
+ * <br> Date: Created in 21:26 2016/12/20.
+ * <br> Modified By
+ * @author SiGen
  */
 @Controller
 public class LoginController extends BaseController {
     /**
-     * @author: SiGen
-     * @description: 接收到/login请求时，返回login页面
-     * @return: "subpage/login/login"
-     * @date: Created in 22:48 2016/12/20.
-     * @modified: By
+     * <br> Description: 接收到/login请求时，返回login页面
+     * <br> Date: Created in 22:48 2016/12/20.
+     * <br> Modified By
+     * @return "subpage/login/login"
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {

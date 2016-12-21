@@ -6,21 +6,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * @Project: mybbs
- * @Package: cn.yk.mybbs.controller.common
- * @Author: SiGen
- * @Description: 子页面/注册
- * @Date: Created in 21:33 2016/12/20.
- * @Modified: By
+ * <br> Project: mybbs
+ * <br> Package: cn.yk.mybbs.controller.common
+ * <br> Description: 子页面/注册
+ * <br> Date: Created in 21:33 2016/12/20.
+ * <br> Modified By
+ * @author SiGen
  */
 @Controller
 public class RegistController extends BaseController {
     /**
-     * @author: SiGen
-     * @description: 接受到/regist请求时，返回regist页面
-     * @return: "subpage/regist/regist"
-     * @date: Created in 22:44 2016/12/20.
-     * @modified: By
+     * <br> Description: 接受到/regist请求时，返回regist页面
+     * <br> Date: Created in 22:44 2016/12/20.
+     * <br> Modified By
+     * @return "subpage/regist/regist"
      */
     @RequestMapping(value = "/regist", method = RequestMethod.GET)
     public String regist() {

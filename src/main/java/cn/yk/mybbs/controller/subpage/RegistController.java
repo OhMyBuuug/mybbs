@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @Project: mybbs
  * @Package: cn.yk.mybbs.controller.common
  * @Author: SiGen
- * @Description:
+ * @Description: 子页面/注册
  * @Date: Created in 21:33 2016/12/20.
  * @Modified: By
  */
@@ -18,14 +18,12 @@ public class RegistController extends BaseController {
     /**
      * @author: SiGen
      * @description: 接受到/regist请求时，返回regist页面
-     * @param null
      * @return: "subpage/regist/regist"
      * @date: Created in 22:44 2016/12/20.
-     * @modified: By  
+     * @modified: By
      */
-    
-    @RequestMapping(value = "/regist",method = RequestMethod.GET)
-    public String regist(){
+    @RequestMapping(value = "/regist", method = RequestMethod.GET)
+    public String regist() {
         return "subpage/regist/regist";
     }
 }

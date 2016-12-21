@@ -45,11 +45,11 @@
     <div class="selectBar">
         <dl class="selectBar-list">
             <dt class="selectBar-item">
-                <a class="selectAbleItem a4page" data-url="<%=path%>/resources/html/subpage/homepage/homepage.html">首页</a><a
-                    class="selectAbleItem a4page" data-url="<%=path%>/resources/html/subpage/player/player.html">玩家</a><a
-                    class="selectAbleItem a4page" data-url="<%=path%>/resources/html/subpage/manufacturer/manufacturer.html">厂商</a><a
-                    class="selectAbleItem selected a4page" data-url="<%=path%>/resources/html/subpage/mybbs/mybbs.html">技术论坛</a><a
-                    class="selectAbleItem a4page" data-url="<%=path%>/resources/html/subpage/living/living.html">评测直播</a>
+                <a class="selectAbleItem a4page" data-url="<%=path%>homepage">首页</a><a
+                    class="selectAbleItem a4page" data-url="<%=path%>/player">玩家</a><a
+                    class="selectAbleItem a4page" data-url="<%=path%>/manufacturer">厂商</a><a
+                    class="selectAbleItem selected a4page" data-url="<%=path%>/mybbs">技术论坛</a><a
+                    class="selectAbleItem a4page" data-url="<%=path%>/living">评测直播</a>
             </dt>
             <dt class="selectBar-item">
                 <input type="text" placeholder="请输入搜索内容" class="sortKey" id="sort-item"/>

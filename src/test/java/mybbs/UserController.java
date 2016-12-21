@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import cn.yk.mybbs.common.RenderJson;
-import cn.yk.mybbs.controller.common.BaseController;
+import cn.yk.mybbs.controller.BaseController;
 import cn.yk.mybbs.model.user_test;
 import cn.yk.mybbs.service.IUserService;
 

@@ -55,8 +55,8 @@
     </dl>
 </div>
 <script type="text/javascript" src="<%=path%>/resources/js/regist.js" charset="UTF-8"></script>
-<script type="text/javascript" src="<%=path%>/js/main.js" charset="UTF-8"></script>
-<script type="text/javascript" src="<%=path%>/js/lib/jquery-2.2.0.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="<%=path%>/resources/js/main.js" charset="UTF-8"></script>
+<script type="text/javascript" src="<%=path%>/resources/js/lib/jquery-2.2.0.min.js" charset="UTF-8"></script>
 </body>
 
 </html>

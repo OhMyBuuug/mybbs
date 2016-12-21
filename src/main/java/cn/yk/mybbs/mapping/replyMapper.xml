@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.yk.mybbs.dao.replyMapper" >
+  <resultMap id="BaseResultMap" type="cn.yk.mybbs.model.reply" >
+    <id column="replyID" property="replyid" jdbcType="INTEGER" />
+    <result column="articleID" property="articleid" jdbcType="INTEGER" />
+    <result column="replyFloor" property="replyfloor" jdbcType="INTEGER" />
+    <result column="replyerID" property="replyerid" jdbcType="INTEGER" />
+    <result column="replyContent" property="replycontent" jdbcType="VARCHAR" />
+    <result column="referenceFloor" property="referencefloor" jdbcType="INTEGER" />
+    <result column="replyTime" property="replytime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    replyID, articleID, replyFloor, replyerID, replyContent, referenceFloor, replyTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from reply
+    where replyID = #{replyid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from reply
+    where replyID = #{replyid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.yk.mybbs.model.reply" >
+    insert into reply (replyID, articleID, replyFloor, 
+      replyerID, replyContent, referenceFloor, 
+      replyTime)
+    values (#{replyid,jdbcType=INTEGER}, #{articleid,jdbcType=INTEGER}, #{replyfloor,jdbcType=INTEGER}, 
+      #{replyerid,jdbcType=INTEGER}, #{replycontent,jdbcType=VARCHAR}, #{referencefloor,jdbcType=INTEGER}, 
+      #{replytime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.yk.mybbs.model.reply" >
+    insert into reply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="replyid != null" >
+        replyID,
+      </if>
+      <if test="articleid != null" >
+        articleID,
+      </if>
+      <if test="replyfloor != null" >
+        replyFloor,
+      </if>
+      <if test="replyerid != null" >
+        replyerID,
+      </if>
+      <if test="replycontent != null" >
+        replyContent,
+      </if>
+      <if test="referencefloor != null" >
+        referenceFloor,
+      </if>
+      <if test="replytime != null" >
+        replyTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="replyid != null" >
+        #{replyid,jdbcType=INTEGER},
+      </if>
+      <if test="articleid != null" >
+        #{articleid,jdbcType=INTEGER},
+      </if>
+      <if test="replyfloor != null" >
+        #{replyfloor,jdbcType=INTEGER},
+      </if>
+      <if test="replyerid != null" >
+        #{replyerid,jdbcType=INTEGER},
+      </if>
+      <if test="replycontent != null" >
+        #{replycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="referencefloor != null" >
+        #{referencefloor,jdbcType=INTEGER},
+      </if>
+      <if test="replytime != null" >
+        #{replytime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.yk.mybbs.model.reply" >
+    update reply
+    <set >
+      <if test="articleid != null" >
+        articleID = #{articleid,jdbcType=INTEGER},
+      </if>
+      <if test="replyfloor != null" >
+        replyFloor = #{replyfloor,jdbcType=INTEGER},
+      </if>
+      <if test="replyerid != null" >
+        replyerID = #{replyerid,jdbcType=INTEGER},
+      </if>
+      <if test="replycontent != null" >
+        replyContent = #{replycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="referencefloor != null" >
+        referenceFloor = #{referencefloor,jdbcType=INTEGER},
+      </if>
+      <if test="replytime != null" >
+        replyTime = #{replytime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where replyID = #{replyid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.yk.mybbs.model.reply" >
+    update reply
+    set articleID = #{articleid,jdbcType=INTEGER},
+      replyFloor = #{replyfloor,jdbcType=INTEGER},
+      replyerID = #{replyerid,jdbcType=INTEGER},
+      replyContent = #{replycontent,jdbcType=VARCHAR},
+      referenceFloor = #{referencefloor,jdbcType=INTEGER},
+      replyTime = #{replytime,jdbcType=TIMESTAMP}
+    where replyID = #{replyid,jdbcType=INTEGER}
+  </update>
+</mapper>

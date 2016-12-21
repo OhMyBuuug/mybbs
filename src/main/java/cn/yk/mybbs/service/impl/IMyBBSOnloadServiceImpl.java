@@ -1,5 +1,6 @@
 package cn.yk.mybbs.service.impl;
 
+import cn.yk.mybbs.dao.moduleMapper;
 import cn.yk.mybbs.service.IMyBBSOnloadService;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,8 @@ import java.util.List;
  */
 @Service("iMyBBSOnloadService")
 public class IMyBBSOnloadServiceImpl implements IMyBBSOnloadService {
-
+    @Resource
+    private moduleMapper modules;
     @Override
     public List getMoudlesAndSections() {
         HashMap modules = new HashMap();

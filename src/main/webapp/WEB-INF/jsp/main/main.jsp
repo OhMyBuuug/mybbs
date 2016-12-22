@@ -64,7 +64,7 @@
         </dl>
     </div>
     <!--<iframe src="../subpage/mybbs/mybbs.html" class="page"  frameborder="no" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
-    <iframe src="<%=path%>/regist" class="page" frameborder="no" scrolling="no"
+    <iframe src="<%=path%>/mybbs" class="page" frameborder="no" scrolling="no"
             marginheight="0" marginwidth="0"></iframe>
     <div class="footPageContainer">
         <div class="footZone-nav">

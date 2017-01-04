@@ -5,17 +5,12 @@
     <id column="sectionID" property="sectionid" jdbcType="INTEGER" />
     <result column="sectionName" property="sectionname" jdbcType="VARCHAR" />
     <result column="articleCount" property="articlecount" jdbcType="INTEGER" />
+    <result column="sectionIcon" property="sectionicon" jdbcType="VARCHAR" />
     <result column="moduleID" property="moduleid" jdbcType="INTEGER" />
     <result column="lastestCreateTime" property="lastestcreatetime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="cn.yk.mybbs.mysql.model.section" extends="BaseResultMap" >
-    <result column="sectionIcon" property="sectionicon" jdbcType="LONGVARBINARY" />
-  </resultMap>
   <sql id="Base_Column_List" >
-    sectionID, sectionName, articleCount, moduleID, lastestCreateTime
-  </sql>
-  <sql id="Blob_Column_List" >
-    sectionIcon
+    sectionID, sectionName, articleCount, sectionIcon, moduleID, lastestCreateTime
   </sql>
 
   <!-- 查询所有的子模块 -->
@@ -23,11 +18,9 @@
     SELECT * FROM section
   </select>
 
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
-    select 
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from section
     where sectionID = #{sectionid,jdbcType=INTEGER}
   </select>
@@ -36,12 +29,12 @@
     where sectionID = #{sectionid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="cn.yk.mybbs.mysql.model.section" >
-    insert into section (sectionID, sectionName, articleCount, 
-      moduleID, lastestCreateTime, sectionIcon
-      )
-    values (#{sectionid,jdbcType=INTEGER}, #{sectionname,jdbcType=VARCHAR}, #{articlecount,jdbcType=INTEGER}, 
-      #{moduleid,jdbcType=INTEGER}, #{lastestcreatetime,jdbcType=TIMESTAMP}, #{sectionicon,jdbcType=LONGVARBINARY}
-      )
+    insert into section (sectionID, sectionName, articleCount,
+    sectionIcon, moduleID, lastestCreateTime
+    )
+    values (#{sectionid,jdbcType=INTEGER}, #{sectionname,jdbcType=VARCHAR}, #{articlecount,jdbcType=INTEGER},
+    #{sectionicon,jdbcType=VARCHAR}, #{moduleid,jdbcType=INTEGER}, #{lastestcreatetime,jdbcType=TIMESTAMP}
+    )
   </insert>
   <insert id="insertSelective" parameterType="cn.yk.mybbs.mysql.model.section" >
     insert into section
@@ -55,14 +48,14 @@
       <if test="articlecount != null" >
         articleCount,
       </if>
+      <if test="sectionicon != null" >
+        sectionIcon,
+      </if>
       <if test="moduleid != null" >
         moduleID,
       </if>
       <if test="lastestcreatetime != null" >
         lastestCreateTime,
-      </if>
-      <if test="sectionicon != null" >
-        sectionIcon,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -75,14 +68,14 @@
       <if test="articlecount != null" >
         #{articlecount,jdbcType=INTEGER},
       </if>
+      <if test="sectionicon != null" >
+        #{sectionicon,jdbcType=VARCHAR},
+      </if>
       <if test="moduleid != null" >
         #{moduleid,jdbcType=INTEGER},
       </if>
       <if test="lastestcreatetime != null" >
         #{lastestcreatetime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="sectionicon != null" >
-        #{sectionicon,jdbcType=LONGVARBINARY},
       </if>
     </trim>
   </insert>
@@ -95,31 +88,23 @@
       <if test="articlecount != null" >
         articleCount = #{articlecount,jdbcType=INTEGER},
       </if>
+      <if test="sectionicon != null" >
+        sectionIcon = #{sectionicon,jdbcType=VARCHAR},
+      </if>
       <if test="moduleid != null" >
         moduleID = #{moduleid,jdbcType=INTEGER},
       </if>
       <if test="lastestcreatetime != null" >
         lastestCreateTime = #{lastestcreatetime,jdbcType=TIMESTAMP},
       </if>
-      <if test="sectionicon != null" >
-        sectionIcon = #{sectionicon,jdbcType=LONGVARBINARY},
-      </if>
     </set>
-    where sectionID = #{sectionid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.yk.mybbs.mysql.model.section" >
-    update section
-    set sectionName = #{sectionname,jdbcType=VARCHAR},
-      articleCount = #{articlecount,jdbcType=INTEGER},
-      moduleID = #{moduleid,jdbcType=INTEGER},
-      lastestCreateTime = #{lastestcreatetime,jdbcType=TIMESTAMP},
-      sectionIcon = #{sectionicon,jdbcType=LONGVARBINARY}
     where sectionID = #{sectionid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.yk.mybbs.mysql.model.section" >
     update section
     set sectionName = #{sectionname,jdbcType=VARCHAR},
       articleCount = #{articlecount,jdbcType=INTEGER},
+      sectionIcon = #{sectionicon,jdbcType=VARCHAR},
       moduleID = #{moduleid,jdbcType=INTEGER},
       lastestCreateTime = #{lastestcreatetime,jdbcType=TIMESTAMP}
     where sectionID = #{sectionid,jdbcType=INTEGER}

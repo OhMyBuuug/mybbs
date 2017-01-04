@@ -1,32 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.yk.mybbs.mysql.dao.articleMapper" >
-  <resultMap id="BaseResultMap" type="cn.yk.mybbs.mysql.model.article" >
-    <id column="artcileID" property="artcileid" jdbcType="INTEGER" />
-    <result column="sectionID" property="sectionid" jdbcType="INTEGER" />
-    <result column="articleTitle" property="articletitle" jdbcType="VARCHAR" />
-    <result column="articleAuthorID" property="articleauthorid" jdbcType="INTEGER" />
-    <result column="articleContent" property="articlecontent" jdbcType="VARCHAR" />
-    <result column="articleTag" property="articletag" jdbcType="VARCHAR" />
-    <result column="articlePV" property="articlepv" jdbcType="INTEGER" />
-    <result column="isTop" property="istop" jdbcType="BIT" />
-    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="cn.yk.mybbs.mysql.dao.articleMapper">
+    <resultMap id="BaseResultMap" type="cn.yk.mybbs.mysql.model.article">
+        <id column="artcileID" property="artcileid" jdbcType="INTEGER"/>
+        <result column="sectionID" property="sectionid" jdbcType="INTEGER"/>
+        <result column="articleTitle" property="articletitle" jdbcType="VARCHAR"/>
+        <result column="articleAuthorID" property="articleauthorid" jdbcType="INTEGER"/>
+        <result column="articleContent" property="articlecontent" jdbcType="VARCHAR"/>
+        <result column="articleTag" property="articletag" jdbcType="VARCHAR"/>
+        <result column="articlePV" property="articlepv" jdbcType="INTEGER"/>
+        <result column="isTop" property="istop" jdbcType="BIT"/>
+        <result column="createTime" property="createtime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     artcileID, sectionID, articleTitle, articleAuthorID, articleContent, articleTag, 
     articlePV, isTop, createTime
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from article
-    where artcileID = #{artcileid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from article
-    where artcileID = #{artcileid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="cn.yk.mybbs.mysql.model.article" >
+
+    <!-- Description: 根据当前模块的ID,查询开始位置,每页显示的文章条数获取相应的文章的基本信息 -->
+    <select id="selectArticleBaseInformationBySectionId" resultMap="BaseResultMap">
+      SELECT
+	    artcileID,
+	    articleTitle,
+	    articleAuthorID,
+	    articlePV,
+	    articleTag,
+  	    isTop,
+	    createTime
+      FROM
+	    article
+	  WHERE
+	    sectionId = #{sectionId}
+      ORDER BY
+	    createTime desc
+      LIMIT #{startIndex},#{pageSize}
+    </select>
+
+    <!-- 根据文章ID获得文章内容 -->
+    <select id="selectArticleContentById" resultType="java.lang.String">
+        SELECT
+          articleContent
+        FROM
+          article
+        WHERE
+          artcileID = #{artcileid,jdbcType=INTEGER}
+    </select>
+
+    <!-- 向指定sectionID的模块下插入文章,并返回是否成功的标识 -->
+    <insert id="insertArticle">
+        INSERT INTO `mybbs`.`article` (
+          `artcileID`,
+          `sectionID`,
+          `articleTitle`,
+          `articleAuthorID`,
+          `articleContent`,
+          `articleTag`,
+          `articlePV`,
+          `isTop`,
+          `createTime`
+        )
+        VALUES
+        (
+          DEFAULT,
+          #{sectionID},
+          #{articleTitle},
+          #{articleAuthorId},
+          #{articleContent},
+          #{articleTag},
+          DEFAULT,
+          DEFAULT,
+          DEFAULT
+        );
+    </insert>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from article
+        where artcileID = #{artcileid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+      delete from article
+      where artcileID = #{artcileid,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="cn.yk.mybbs.mysql.model.article">
     insert into article (artcileID, sectionID, articleTitle, 
       articleAuthorID, articleContent, articleTag, 
       articlePV, isTop, createTime
@@ -36,98 +93,98 @@
       #{articlepv,jdbcType=INTEGER}, #{istop,jdbcType=BIT}, #{createtime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="cn.yk.mybbs.mysql.model.article" >
-    insert into article
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="artcileid != null" >
-        artcileID,
-      </if>
-      <if test="sectionid != null" >
-        sectionID,
-      </if>
-      <if test="articletitle != null" >
-        articleTitle,
-      </if>
-      <if test="articleauthorid != null" >
-        articleAuthorID,
-      </if>
-      <if test="articlecontent != null" >
-        articleContent,
-      </if>
-      <if test="articletag != null" >
-        articleTag,
-      </if>
-      <if test="articlepv != null" >
-        articlePV,
-      </if>
-      <if test="istop != null" >
-        isTop,
-      </if>
-      <if test="createtime != null" >
-        createTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="artcileid != null" >
-        #{artcileid,jdbcType=INTEGER},
-      </if>
-      <if test="sectionid != null" >
-        #{sectionid,jdbcType=INTEGER},
-      </if>
-      <if test="articletitle != null" >
-        #{articletitle,jdbcType=VARCHAR},
-      </if>
-      <if test="articleauthorid != null" >
-        #{articleauthorid,jdbcType=INTEGER},
-      </if>
-      <if test="articlecontent != null" >
-        #{articlecontent,jdbcType=VARCHAR},
-      </if>
-      <if test="articletag != null" >
-        #{articletag,jdbcType=VARCHAR},
-      </if>
-      <if test="articlepv != null" >
-        #{articlepv,jdbcType=INTEGER},
-      </if>
-      <if test="istop != null" >
-        #{istop,jdbcType=BIT},
-      </if>
-      <if test="createtime != null" >
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.yk.mybbs.mysql.model.article" >
-    update article
-    <set >
-      <if test="sectionid != null" >
-        sectionID = #{sectionid,jdbcType=INTEGER},
-      </if>
-      <if test="articletitle != null" >
-        articleTitle = #{articletitle,jdbcType=VARCHAR},
-      </if>
-      <if test="articleauthorid != null" >
-        articleAuthorID = #{articleauthorid,jdbcType=INTEGER},
-      </if>
-      <if test="articlecontent != null" >
-        articleContent = #{articlecontent,jdbcType=VARCHAR},
-      </if>
-      <if test="articletag != null" >
-        articleTag = #{articletag,jdbcType=VARCHAR},
-      </if>
-      <if test="articlepv != null" >
-        articlePV = #{articlepv,jdbcType=INTEGER},
-      </if>
-      <if test="istop != null" >
-        isTop = #{istop,jdbcType=BIT},
-      </if>
-      <if test="createtime != null" >
-        createTime = #{createtime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where artcileID = #{artcileid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="cn.yk.mybbs.mysql.model.article" >
+    <insert id="insertSelective" parameterType="cn.yk.mybbs.mysql.model.article">
+        insert into article
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="artcileid != null">
+                artcileID,
+            </if>
+            <if test="sectionid != null">
+                sectionID,
+            </if>
+            <if test="articletitle != null">
+                articleTitle,
+            </if>
+            <if test="articleauthorid != null">
+                articleAuthorID,
+            </if>
+            <if test="articlecontent != null">
+                articleContent,
+            </if>
+            <if test="articletag != null">
+                articleTag,
+            </if>
+            <if test="articlepv != null">
+                articlePV,
+            </if>
+            <if test="istop != null">
+                isTop,
+            </if>
+            <if test="createtime != null">
+                createTime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="artcileid != null">
+                #{artcileid,jdbcType=INTEGER},
+            </if>
+            <if test="sectionid != null">
+                #{sectionid,jdbcType=INTEGER},
+            </if>
+            <if test="articletitle != null">
+                #{articletitle,jdbcType=VARCHAR},
+            </if>
+            <if test="articleauthorid != null">
+                #{articleauthorid,jdbcType=INTEGER},
+            </if>
+            <if test="articlecontent != null">
+                #{articlecontent,jdbcType=VARCHAR},
+            </if>
+            <if test="articletag != null">
+                #{articletag,jdbcType=VARCHAR},
+            </if>
+            <if test="articlepv != null">
+                #{articlepv,jdbcType=INTEGER},
+            </if>
+            <if test="istop != null">
+                #{istop,jdbcType=BIT},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.yk.mybbs.mysql.model.article">
+        update article
+        <set>
+            <if test="sectionid != null">
+                sectionID = #{sectionid,jdbcType=INTEGER},
+            </if>
+            <if test="articletitle != null">
+                articleTitle = #{articletitle,jdbcType=VARCHAR},
+            </if>
+            <if test="articleauthorid != null">
+                articleAuthorID = #{articleauthorid,jdbcType=INTEGER},
+            </if>
+            <if test="articlecontent != null">
+                articleContent = #{articlecontent,jdbcType=VARCHAR},
+            </if>
+            <if test="articletag != null">
+                articleTag = #{articletag,jdbcType=VARCHAR},
+            </if>
+            <if test="articlepv != null">
+                articlePV = #{articlepv,jdbcType=INTEGER},
+            </if>
+            <if test="istop != null">
+                isTop = #{istop,jdbcType=BIT},
+            </if>
+            <if test="createtime != null">
+                createTime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where artcileID = #{artcileid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.yk.mybbs.mysql.model.article">
     update article
     set sectionID = #{sectionid,jdbcType=INTEGER},
       articleTitle = #{articletitle,jdbcType=VARCHAR},

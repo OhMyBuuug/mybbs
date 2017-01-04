@@ -9,11 +9,11 @@ public class section {
 
     private Integer articlecount;
 
+    private String sectionicon;
+
     private Integer moduleid;
 
     private Date lastestcreatetime;
-
-    private byte[] sectionicon;
 
     public Integer getSectionid() {
         return sectionid;
@@ -39,6 +39,14 @@ public class section {
         this.articlecount = articlecount;
     }
 
+    public String getSectionicon() {
+        return sectionicon;
+    }
+
+    public void setSectionicon(String sectionicon) {
+        this.sectionicon = sectionicon == null ? null : sectionicon.trim();
+    }
+
     public Integer getModuleid() {
         return moduleid;
     }
@@ -53,13 +61,5 @@ public class section {
 
     public void setLastestcreatetime(Date lastestcreatetime) {
         this.lastestcreatetime = lastestcreatetime;
-    }
-
-    public byte[] getSectionicon() {
-        return sectionicon;
-    }
-
-    public void setSectionicon(byte[] sectionicon) {
-        this.sectionicon = sectionicon;
     }
 }

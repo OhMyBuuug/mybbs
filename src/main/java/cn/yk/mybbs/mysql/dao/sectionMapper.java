@@ -15,8 +15,6 @@ public interface sectionMapper {
 
     int updateByPrimaryKeySelective(section record);
 
-    int updateByPrimaryKeyWithBLOBs(section record);
-
     int updateByPrimaryKey(section record);
 
     // 获得所有的子分类

@@ -23,9 +23,11 @@
     <link rel="shortcut icon" href="<%=path%>/resources/image/mybbs.jpg"/>
     <link rel="stylesheet" type="text/css" href="<%=path%>/resources/css/main.css"/>
     <link rel="stylesheet" type="text/css" href="<%=path%>/resources/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=path%>/resources/css/toastr.min.css"/>
 </head>
 
 <body>
+<base href="<%=basePath%>">
 <div class="main">
     <!-- 顶部导航栏 -->
     <div class="topBar">
@@ -45,7 +47,7 @@
     <div class="selectBar">
         <dl class="selectBar-list">
             <dt class="selectBar-item">
-                <a class="selectAbleItem a4page" data-url="<%=path%>homepage">首页</a><a
+                <a class="selectAbleItem a4page" data-url="<%=path%>/homepage">首页</a><a
                     class="selectAbleItem a4page" data-url="<%=path%>/player">玩家</a><a
                     class="selectAbleItem a4page" data-url="<%=path%>/manufacturer">厂商</a><a
                     class="selectAbleItem selected a4page" data-url="<%=path%>/mybbs">技术论坛</a><a
@@ -77,6 +79,7 @@
 </div>
 <script src="<%=path%>/resources/js/lib/jquery-2.2.0.min.js" type="text/javascript" charset="UTF-8"></script>
 <script type="text/javascript" src="<%=path%>/resources/js/main.js" charset="UTF-8"></script>
+<script type="text/javascript" src="<%=path%>/resources/js/lib/toastr.min.js"></script>
 <%--<script type="text/javascript">
     $(function () {
         $(".a4page").click(function () {

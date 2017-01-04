@@ -13,12 +13,55 @@
   <sql id="Base_Column_List" >
     replyID, articleID, replyFloor, replyerID, replyContent, referenceFloor, replyTime
   </sql>
+
+  <!-- 根据文章ID获得文章的回复列表 -->
+  <select id="selectReplyByArticleId" resultMap="BaseResultMap">
+    SELECT
+      *
+    FROM
+      reply
+    WHERE
+      articleID = #{articleId}
+    ORDER BY
+      replyFloor ASC
+    LIMIT
+      #{startIndex},#{pageSize}
+  </select>
+
+  <!-- 向对应articleID的文章中插入回复 -->
+  <insert id="insertReply" >
+    INSERT INTO `mybbs`.`reply` (
+	  `replyID`,
+	  `articleID`,
+	  `replyFloor`,
+	  `replyerID`,
+	  `replyContent`,
+	  `referenceFloor`,
+	  `replyTime`
+    )
+    VALUES
+	(
+		DEFAULT,
+		#{articleID},
+		#{replyFloor},
+		#{replyerID},
+		#{replyContent},
+		#{referenceFloor},
+		DEFAULT
+	);
+  </insert>
+
+  <select id="selectCountOfReplyByArticleId" resultType="java.lang.Integer">
+    SELECT COUNT(*) FROM reply WHERE articleID = #{articleId}
+  </select>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from reply
     where replyID = #{replyid,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from reply
     where replyID = #{replyid,jdbcType=INTEGER}
